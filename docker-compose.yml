@@ -1,20 +1,24 @@
-version: '3.8'
-
+version: '3'
 services:
-  node_todo:
-    build: ./ToDo-APP
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - /var/lib/docker/volumes/volume2/_data
+    environment:
+       MONGO_INITDB_ROOT_USERNAME: admin
+       MONGO_INITDB_ROOT_PASSWORD: password
+    networks:
+      - network2
+    hostname: host1
+  todoapp:
+    build: .
+    depends_on:
+      - mongodb
     ports:
       - "3000:3000"
-    depends_on:
-      - mongo
-    environment:
-      - MONGODB_URI=mongodb://mongo:27017/todo
-
-  mongo:
-    ports:
-      - "27017:27017"
-    volumes:
-      - volume1
-
+    networks:
+      - network1
+networks:
+  network2:
 volumes:
-  mongo_data:
+  volume2:
