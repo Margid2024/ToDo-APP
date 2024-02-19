@@ -3,12 +3,12 @@ services:
   mongodb:
     image: mongo:latest
     volumes:
-      -  todo-volume2:/data/db
+      -  ToDo-APP-volume2:/data/db
     environment:
        MONGO_INITDB_ROOT_USERNAME: myuser
        MONGO_INITDB_ROOT_PASSWORD: mypassword
     networks:
-      - network2
+      - network1
     hostname: my_host
   todoapp:
     build: .
@@ -17,8 +17,8 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - network2
+      - network1
 networks:
-  network2:
+  network1:
 volumes:
-  volume2:
+  ToDo-APP-volume2:
