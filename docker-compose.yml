@@ -17,7 +17,7 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - network1
+      - network2
 networks:
   network2:
 volumes:
