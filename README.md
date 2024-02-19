@@ -29,8 +29,7 @@ go to browser the port for node application 3000 and run your application
 
 Run the Project using Docker Compose
 
-1. docker -compose build
-2. docker -compose up -d
+1. docker -compose up -d --build
 
 # ToDo-app-node-js-express-js-mongodb
 
