@@ -3,7 +3,7 @@ services:
   mongodb:
     image: mongo:latest
     volumes:
-      -  ToDo-APP/var/lib/docker/volumes/volume2/_data
+      -  todo-volume2:/data/db
     environment:
        MONGO_INITDB_ROOT_USERNAME: myuser
        MONGO_INITDB_ROOT_PASSWORD: mypassword
