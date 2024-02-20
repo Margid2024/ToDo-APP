@@ -3,13 +3,14 @@ services:
   mongodb:
     image: mongo:latest
     volumes:
-      -  ToDo-APP-volume2:/data/db
+      -  volume1:/data/db
     environment:
        MONGO_INITDB_ROOT_USERNAME: myuser
        MONGO_INITDB_ROOT_PASSWORD: mypassword
     networks:
       - network1
     hostname: my_host
+
   todoapp:
     build: .
     depends_on:
@@ -20,5 +21,6 @@ services:
       - network1
 networks:
   network1:
+  
 volumes:
-  ToDo-APP-volume2:
+  volume1:
